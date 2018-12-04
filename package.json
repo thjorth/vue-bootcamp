@@ -1,0 +1,14 @@
+{
+  "name": "fe-school",
+  "version": "1.0.0",
+  "description": "A small setup for learning VueJS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "author": "Thomas Hjorth",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
