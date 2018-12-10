@@ -12,6 +12,43 @@ function testConnection() {
       });
 }
 
+function calcMeanRate(ratings) {
+    let r = 0, c = 0;
+    c += ratings.r0;
+    
+    c += ratings.r1;
+    r += ratings.r1;
+
+    c += ratings.r2;
+    r += ratings.r2 * 2;
+
+    c += ratings.r3;
+    r += ratings.r3 * 3;
+
+    c += ratings.r4;
+    r += ratings.r4 * 4;
+
+    c += ratings.r5;
+    r += ratings.r5 * 5;
+
+    c += ratings.r6;
+    r += ratings.r6 * 6;
+
+    c += ratings.r7;
+    r += ratings.r7 * 7;
+
+    c += ratings.r8;
+    r += ratings.r8 * 8;
+
+    c += ratings.r9;
+    r += ratings.r9 * 9;
+
+    c += ratings.r10;
+    r += ratings.r10 * 10;
+
+    return r / c;
+}
+
 async function getRatings(id) {
     const promise = new Promise((resolve, reject) => {
         Client.connect(URI, {useNewUrlParser: true}, function(err, db) {
@@ -25,10 +62,10 @@ async function getRatings(id) {
                         reject(err);
                     }
                     else {
+                        result.rating = calcMeanRate(result);
                         resolve(result);
                     }
                 });
-    
             }
         });
     });
