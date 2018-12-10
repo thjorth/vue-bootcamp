@@ -3,9 +3,12 @@ var app = express();
 var fs = require("fs");
 const fetch = require('node-fetch');
 
+const db = require('./db');
+
 const API_BASE_URL = 'http://www.omdbapi.com/?apikey=4f31804c&';
 
 
+db.testConnection();
 
 app.use(express.static('ymdb/dist/'));
 
@@ -35,7 +38,24 @@ app.get('/api/details', async function (req, res) {
     res.end(text)
 });
  
+app.get('/api/ratings', async function(req, res) {
+    if (!req.query.id) {
+        res.end('Error');
+        return;
+    }
 
+    const ratings = await db.getRatings(req.query.id);
+    res.end(JSON.stringify(ratings));
+});
+
+app.get('/api/ratings/update', async function(req, res) {
+    if (!req.query.id || !req.query.rating) {
+        res.end('Error: The correct parameters were not supplied');
+        return;
+    }
+    const result = await db.putRating(req.query.id, Number(req.query.rating));
+    res.end(JSON.stringify(result));
+})
 
 app.get('/api/listUsers', function (req, res) {
    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
