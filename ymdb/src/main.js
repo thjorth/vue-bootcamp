@@ -3,7 +3,13 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// globally available components
+import header from './components/header';
+
+// styles
 import './scss/index.scss';
+
+Vue.component('c-header', header);
 
 Vue.config.productionTip = false
 
