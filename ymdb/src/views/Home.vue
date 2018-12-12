@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    
+    [Replace this with the search component]
   </div>
 </template>
 
