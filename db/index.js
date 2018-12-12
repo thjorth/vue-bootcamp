@@ -7,7 +7,6 @@ const RATINGS_COLLECTION = 'ratings';
 function testConnection() {
     Client.connect(URI, { useNewUrlParser: true }, function(err, db) {
         if (err) throw err;
-        console.log("Database created!");
         db.close();
       });
 }
