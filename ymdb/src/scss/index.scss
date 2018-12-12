@@ -1,3 +1,16 @@
+@import './settings';
+@import '../../node_modules/sierra-library/lib/index';
+
+
+// for documentation of the Sierra framework go to (and scroll down) https://sierra-library.github.io/ 
+
+
+
 body {
-    background: pink!important;
+    font-family: 'Anton', sans-serif;
+    font-size: $fz-base;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: $ff-heading;
+    font-size: $fz-base * 1.2;
 }
