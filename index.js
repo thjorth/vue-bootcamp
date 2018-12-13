@@ -69,7 +69,7 @@ app.get('/api/ratings', async function(req, res) {
     res.end(JSON.stringify(ratings));
 });
 
-app.get('/api/ratings/update', async function(req, res) {
+app.post('/api/ratings', async function(req, res) {
     if (!req.query.id || !req.query.rating) {
         res.end('Error: The correct parameters were not supplied');
         return;
