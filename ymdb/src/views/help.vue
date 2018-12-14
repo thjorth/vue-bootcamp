@@ -5,8 +5,9 @@
     <p>Look in /src/App.vue to see how the header component is inserted into the template and how prop values are passed down to the component</p>
     <p>Look at the /src/components/header.vue file to see how to access a prop</p>
     <p>
-      <a href="https://vuejs.org/v2/guide/components-props.html" target="_blank">Read about props</a><br/>
       <a href="https://vuejs.org/v2/guide/components.html" target="_blank">Read about components</a><br/>
+      <a href="https://vuejs.org/v2/guide/components-props.html" target="_blank">Read about props</a><br/>
+      <a href="https://vuejs.org/v2/guide/events.html#Method-Event-Handlers" target="_blank">Read about method event handlers</a>
     </p>
   </div>
 </template>
