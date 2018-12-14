@@ -18,6 +18,6 @@
       the results returned by the search.
     </p>
 
-    <p>Look in /src/App.vue for an example of how create a v-for contruct.</p>
+    <p>Look in /src/App.vue for an example of how create a v-for construct.</p>
   </div>
 </template>
