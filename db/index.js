@@ -12,6 +12,9 @@ function testConnection() {
 }
 
 function calcMeanRate(ratings) {
+    if (!ratings) {
+        return 0;
+    }
     let r = 0, c = 0;
     c += ratings.r0;
     
@@ -61,7 +64,9 @@ async function getRatings(id) {
                         reject(err);
                     }
                     else {
-                        result.rating = calcMeanRate(result);
+                        if (result) {
+                            result.rating = calcMeanRate(result);
+                        }
                         resolve(result);
                     }
                 });
