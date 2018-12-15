@@ -2,30 +2,22 @@
     <div class="task text-left">
         <h2>Task</h2>
         <p>
-            Now we will create a view where we can see more about a particular movie. We will use the Vue router to handle the navigation,
-            and we will modify the search result so we can navigate to the detailed view of the movie. A view is just a Vue component, 
-            but it is useful to make the distinction and agree that views (or pages) are Vue components you can navigate to and regular components
-            are just building blocks you can use in the different views.
+            It is time to add some ratings to our movie detail view. For that purpose, a couple of useful functions have been added to the movie service. 
+            <em>getRatings</em> will fetch the ratings for a given movie while <em>postRating</em> will post a rating for a given movie. Ratings ranging
+            from 0 to 10 (both values included) are accepted by the server.
         </p>
         <ol>
-            <li>Create a new Vue component in /src/views/. Call it <em>movie.vue</em></li>
-            <li>Import the component into the router and add a rule allowing you to navigate to the newly created view/component. Make the router rule respond to <em>/movie</em></li>
-            <li>Add an <em>id</em> parameter to the route and make sure the route is configured to pass parameters in as props</li>
-            <li>Modify the result list from chapter 2 and insert a router-link in the template so you will navigate to <em>/movie/&lt;imdbId from the search result&gt;</em></li>
-            <li>Add an <em>id</em>prop to the movie.vue component. The router will pass the <em>id</em> from the path into the <em>id</em> prop in the movie.vue component</li>
-            <li>Import the <em>getDetails</em> function from the movie service into the component</li>
-            <li>Add a <em>mounted</em> hook in the component. This will be called whenever the movie component is mounted in the DOM.</li>
+            <li>Import the two new methods from /src/services/movie.js. Use the<br/><em><strong>import</strong> { method1, method2 } <strong>from</strong> './path/to/file.js';</em><br/>form.</li>
             <li>
-                Inside the mounted hook, you should make an async call to the <em>getDetails</em> function and supply the <em>id</em> prop as a parameter. This will fetch
-                details about the movie and return it as an object. Use console.log to log it out into the console so you can inspect the contents and structure of it
+                In the <em>mounted</em> hook add an async call to <em>getRatings</em> and console log the returned value out. <strong>Hint:</strong>
+                The ratings database is almost empty but some disturbed individual has already put a bunch of votes on The House That Jack Built so 
+                use that title for testing purposes.
             </li>
-            <li>
-                Add a data property to the view and once you get the object back from <em>getDetails</em> in the mounted hook, assign the object to that data attribute.
-                Now the contents of that object are available to use in the template.
-            </li>
-            <li>
-                Add markup to the template and insert references to the properties in the data object so you can display the details for the movie.
-            </li>
+            <li>Create a UI that can render out the ratings on the movie view. You can do it as a separate component ot just simply add it to the movie.vue component template.</li>
+            <li>The create a UI that can be used for selecting your own rating including a button to submit the rating.</li>
+            <li>Create a <em>submitRating</em> method on the Vue component and hook the button to submit ratings up to it</li>
+            <li>In that method make an async call to the <em>postRating</em> method from the movie service. This method takes the id of the movie and the rating as an integer as parameters</li>
+            <li>Once done, you can start rating different movies.</li>
         </ol>
     </div>
 </template>
