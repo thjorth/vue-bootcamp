@@ -1,23 +1,64 @@
 <template>
-    <div class="task text-left">
+    <div class="c-view task text-left" key="task">
         <h2>Task</h2>
         <p>
-            It is time to add some ratings to our movie detail view. For that purpose, a couple of useful functions have been added to the movie service. 
-            <em>getRatings</em> will fetch the ratings for a given movie while <em>postRating</em> will post a rating for a given movie. Ratings ranging
-            from 0 to 10 (both values included) are accepted by the server.
+            Now let's add some transitions to make it all more interesting. First we will animate the transitions between the different router views. After that we will 
+            add an overlay that will animate into view showing a large poster from the movie.
         </p>
         <ol>
-            <li>Import the two new methods from /src/services/movie.js. Use the<br/><em><strong>import</strong> { method1, method2 } <strong>from</strong> './path/to/file.js';</em><br/>form.</li>
+            <li>Place a transition tag around a the <em>router-view</em> tag and give it the name <em>slider</em></li>
             <li>
-                In the <em>mounted</em> hook add an async call to <em>getRatings</em> and console log the returned value out. <strong>Hint:</strong>
-                The ratings database is almost empty but some disturbed individual has already put a bunch of votes on The House That Jack Built so 
-                use that title for testing purposes.
+                Now create the styles for the six different animation classes that are applied during the animation cycle.<br/>
+                <ul>
+                    <li>
+                        <em>slide-enter-active</em> will be applied all the time the activation animation is playing.<br/>
+                    </li>
+                    <li>
+                        <em>slide-enter</em> defines the style properties that are animated <strong>from</strong> while the element is being activated.<br/>
+                    </li>
+                    <li>
+                        <em>slide-enter-to</em> defines the style properties that are animated <strong>to</strong> while the element is being de-activated.<br/>
+                    </li>
+                    <li>
+                        <em>slide-leave-active</em> will be applied all the time the de-activation animation is playing.<br/>
+                    </li>
+                    <li>
+                        <em>slide-leave</em> defines the style properties that are animated <strong>from</strong> during de-activation of the element<br/>
+                    </li>
+                    <li>
+                        <em>slide-leave-to</em> defines the style properties that are animated <strong>to</strong> during de-activation of the element<br/>
+                    </li>
+                    <li>
+                        <a href="https://vuejs.org/v2/guide/transitions.html" target="_blank">Read more about animations</a>
+                    </li>
+                </ul>
             </li>
-            <li>Create a UI that can render out the ratings on the movie view. You can do it as a separate component ot just simply add it to the movie.vue component template.</li>
-            <li>The create a UI that can be used for selecting your own rating including a button to submit the rating.</li>
-            <li>Create a <em>submitRating</em> method on the Vue component and hook the button to submit ratings up to it</li>
-            <li>In that method make an async call to the <em>postRating</em> method from the movie service. This method takes the id of the movie and the rating as an integer as parameters</li>
-            <li>Once done, you can start rating different movies.</li>
+            <li>
+                For the poster, add an element in bottom of the movie component add a v-if attribute that is hooked up to a boolean data attribute on the component.
+                Make sure that attribute is initialized to be null.
+            </li>
+            <li>
+                Add a link or button to the movie component and hook its click event up to a method on the component. Implement that method so a click sets the 
+                boolean to <em>true</em>
+            </li>
+            <li>
+                Create markup for the poster inside the element you just added. Make sure you add an image tag with the poster image url that is availabe
+                in the movie component.
+            </li>
+            <li>
+                Style the element and its contents so it acts like an overlay and takes up the whole screen (or whatever you prefer)
+            </li>
+            <li>
+                Add a link or button inside the overlay and hook it up to a method that sets the boolean to false.
+            </li>
+            <li>
+                Wrap the element in a <em>transition</em> tag and set its name to <em>overlay</em>
+            </li>
+            <li>
+                Create six animation classes named overlay-enter-active, overlay-enter, overlay-enter-to, overlay-leave-active, overlay-leave, overlay-leave-to 
+                and implement css rules to make the element slide in from the bottom of the page when activated, and slide out of the bottom of the 
+                when de-activated.
+            </li>
         </ol>
     </div>
 </template>
